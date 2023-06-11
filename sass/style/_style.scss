@@ -26,31 +26,11 @@ $img: nth($images, random(length($images)));
 body {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-header {
-  .navbar-small {
-    height: 50px;
-  }
-  .btn-navbar {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 2rem;
-    border: 2px solid black;
-
-    span {
-      position: absolute;
-      bottom: -3px;
-      left: 6px;
-    }
-  }
-  .navbar {
-    display: none;
-  }
 }
 
 main {
@@ -82,20 +62,16 @@ main {
       background: url("../../assets/img/#{$image-4}.jpg");
     }
     .image-5 {
-      background: url("../../assets/img/#{$image-5}.jpg") center center
-        no-repeat;
+      background: url("../../assets/img/#{$image-5}.jpg");
     }
     .image-6 {
-      background: url("../../assets/img/#{$image-6}.jpg") center center
-        no-repeat;
+      background: url("../../assets/img/#{$image-6}.jpg");
     }
     .image-7 {
-      background: url("../../assets/img/#{$image-7}.jpg") center center
-        no-repeat;
+      background: url("../../assets/img/#{$image-7}.jpg");
     }
     .image-8 {
-      background: url("../../assets/img/#{$image-8}.jpg") center center
-        no-repeat;
+      background: url("../../assets/img/#{$image-8}.jpg");
     }
 
     .card {
@@ -153,35 +129,6 @@ main {
 }
 
 @media #{$medium-up} {
-  header {
-    display: block;
-    width: 100%;
-    height: 10vh;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .btn-navbar {
-      display: none;
-    }
-    .navbar {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.5rem;
-
-      a {
-        font-weight: bold;
-        text-decoration: none;
-        letter-spacing: 3px;
-      }
-    }
-
-    .navbar a:first-child {
-      margin-right: auto;
-    }
-  }
   main {
     .card-group:nth-child(odd) {
       flex-direction: row;
