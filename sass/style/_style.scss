@@ -1,0 +1,272 @@
+@import "../libs/reset";
+@import "../libs/responsive";
+
+$bg-card: #c2c2c2;
+$image-1: "image-1";
+$image-2: "image-2";
+$image-3: "image-3";
+$image-4: "image-4";
+$image-5: "image-5";
+$image-6: "image-6";
+$image-7: "image-7";
+$image-8: "image-8";
+
+$images: (
+  "assets/img/image-1.jpg",
+  "assets/img/image-2.jpg",
+  "assets/img/image-3.jpg",
+  "assets/img/image-4.jpg",
+  "assets/img/image-5.jpg",
+  "assets/img/image-6.jpg",
+  "assets/img/image-7.jpg",
+  "assets/img/image-8.jpg"
+);
+$img: nth($images, random(length($images)));
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  .navbar-small {
+    height: 50px;
+  }
+  .btn-navbar {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 2rem;
+    border: 2px solid black;
+
+    span {
+      position: absolute;
+      bottom: -3px;
+      left: 6px;
+    }
+  }
+  .navbar {
+    display: none;
+  }
+}
+
+main {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+  gap: 1rem;
+
+  .card-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .image-1 {
+      background: url("../../assets/img/#{$image-1}.jpg");
+    }
+    .image-2 {
+      background: url("../../assets/img/#{$image-2}.jpg");
+    }
+    .image-3 {
+      background: url("../../assets/img/#{$image-3}.jpg");
+    }
+    .image-4 {
+      background: url("../../assets/img/#{$image-4}.jpg");
+    }
+    .image-5 {
+      background: url("../../assets/img/#{$image-5}.jpg") center center
+        no-repeat;
+    }
+    .image-6 {
+      background: url("../../assets/img/#{$image-6}.jpg") center center
+        no-repeat;
+    }
+    .image-7 {
+      background: url("../../assets/img/#{$image-7}.jpg") center center
+        no-repeat;
+    }
+    .image-8 {
+      background: url("../../assets/img/#{$image-8}.jpg") center center
+        no-repeat;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 5px;
+      width: 80%;
+      min-width: 200px;
+      max-width: 500px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 2px 2px 10px 3px darken($bg-card, 30%);
+      overflow: hidden;
+      transition: 0.5s all ease;
+
+      .image-holder {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all 1s;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
+      .card-content {
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+        backdrop-filter: blur(5px);
+        color: #fff;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .card-info {
+        display: block;
+        width: 70%;
+        text-align: justify;
+        padding: 0.3rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  header {
+    display: block;
+    width: 100%;
+    height: 10vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-navbar {
+      display: none;
+    }
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+
+      a {
+        font-weight: bold;
+        text-decoration: none;
+        letter-spacing: 3px;
+      }
+    }
+
+    .navbar a:first-child {
+      margin-right: auto;
+    }
+  }
+  main {
+    .card-group:nth-child(odd) {
+      flex-direction: row;
+      gap: 1rem;
+      .card:nth-child(odd) {
+        width: 40%;
+        max-width: 600px;
+      }
+      .card:nth-child(even) {
+        width: 60%;
+        max-width: 600px;
+      }
+    }
+
+    .card-group:nth-child(even) {
+      flex-direction: row;
+      gap: 1rem;
+      .card:nth-child(even) {
+        width: 40%;
+        max-width: 600px;
+      }
+      .card:nth-child(odd) {
+        width: 60%;
+        max-width: 600px;
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  main {
+    .card-group {
+      justify-content: center;
+      width: 100%;
+    }
+    .card-group:nth-child(odd) {
+      flex-direction: row;
+      gap: 1rem;
+      .card:nth-child(odd) {
+        width: 50%;
+        max-width: 500px;
+      }
+      .card:nth-child(even) {
+        width: 50%;
+        max-width: 500px;
+      }
+    }
+
+    .card-group:nth-child(even) {
+      flex-direction: row;
+      gap: 1rem;
+      .card:nth-child(even) {
+        width: 50%;
+        max-width: 500px;
+      }
+      .card:nth-child(odd) {
+        width: 50%;
+        max-width: 500px;
+      }
+    }
+  }
+}
+
+@media #{$x-large-up} {
+  body {
+    padding: 0.5rem;
+  }
+  main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem !important;
+
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem !important;
+      width: 35%;
+      .card {
+        width: 45%;
+        max-width: 300px;
+        height: 200px;
+      }
+    }
+  }
+}
